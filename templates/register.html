@@ -1,0 +1,39 @@
+{% extends "bootstrap/base.html" %}
+
+
+
+{% block content %}
+
+{% if not is_activation %}
+        
+
+{% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+                    <p>{{ message }}</p>  
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %}  
+
+<form method="post">
+    
+    {{ form.name.label }} <br>
+    {{ form.name }} <br>
+    {{ form.email.label }} <br>
+    {{ form.email }} <br>
+    {{ form.password.label }} <br>
+    {{ form.password }} <br>
+    {{ form.submit }}
+</form>
+{% else %}
+
+<form action="{{ url_for('activation') }}" method="post">
+     <h1>Actvation Code</h1>
+     <input type="text" value="{{ email }}" name="email" hidden>
+    <input type="text" name="activation_code">
+    <button>Send</button>
+
+</form>
+
+{% endif %}
+{% endblock %}

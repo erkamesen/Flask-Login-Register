@@ -1,0 +1,29 @@
+{% extends "bootstrap/base.html" %}
+
+
+
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+                    <p>{{ message }}</p>  
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %}  
+
+<form method="post">
+    
+    
+    {{ form.email.label }} <br>
+    {{ form.email }} <br>
+    {{ form.password.label }} <br>
+    {{ form.password }} <br>
+    {{ hc | safe }}
+    {{ form.submit }}
+    
+</form>
+    
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "bootstrap/base.html" %}
+
+
+
+<head>{% block title %} Flask Login System {% endblock %} </head>
+
+
+{% block content %}
+    
+ 
+    <div class="choice">
+        <a href="{{ url_for('login') }}"> <button type="button" class="btn btn-primary">Login</button></a>
+        <a href="{{ url_for('register')}}"> <button type="button" class="btn btn-secondary">Register</button></a> 
+    </div>
+
+{% endblock %}
